@@ -276,7 +276,7 @@ def run(args):
 
         if args['--conditions'] is None:
             args['--conditions'] = ""
-        
+
         #  Rscript SalmonTE_Stats.R SalmonTE_output xls PDF tmp
         os.system("Rscript {} {} {} {} {} {} {}".format( os.path.join(os.path.dirname(__file__), "SalmonTE_Stats.R"),
                                         args["--inpath"],
@@ -288,6 +288,7 @@ def run(args):
 
 
 if __name__ == '__main__':
+    print("Hello From my SalmonTE")
     logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
     args = docopt(__doc__, version='SalmonTE 0.4')
     run(args)
