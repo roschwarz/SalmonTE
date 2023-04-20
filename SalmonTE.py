@@ -234,7 +234,7 @@ def run(args):
 
         if args['--reference'].startswith("./"):
            args['--reference'] = args['--reference'][2:]
-           
+
         logging.info("Starting quantification mode")
         logging.info("Collecting FASTQ files...")
         param = {**args, **collect_FASTQ_files(args['FILE'])}
@@ -243,8 +243,6 @@ def run(args):
         logging.info("Running Salmon using Snakemake")
 
         run_salmon(param)
-        os.system("cp {}/clades.csv {}".format(args['--reference'],
-                                               args['--outpath']))
 
     if args['index']:
         build_salmon_index(args['--input_fasta'], args['--ref_name'], args['--te_only'])
@@ -291,4 +289,4 @@ def run(args):
 if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
     args = docopt(__doc__, version='SalmonTE 0.4')
-    run(args) 
+    run(args)
